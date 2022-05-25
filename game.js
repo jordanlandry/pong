@@ -27,6 +27,8 @@ const handleKeyDown = (e) => {
   if (e.key === 'ArrowDown') goDown = true
   else if (e.key === 'ArrowUp') goUp = true
   else return 
+
+  e.view.event.preventDefault();
   doUpdate = true
 }
 
@@ -113,7 +115,7 @@ class Ball {
 
   checkCollision() {
     // Player
-    if (this.x <= (player.x + player.wid + this.rad / 2)) {
+    if (this.x <= (player.x + player.wid - this.rad)) {
       if (this.y <= (player.y + player.len) && this.y >= player.y) {
       // Check if the ball's y position matches the paddle's y position
       // if (this.y >= (player.y - player.len) && this.y <= (player.y - player.len)) {
