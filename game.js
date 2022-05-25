@@ -1,15 +1,21 @@
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
-const width = window.innerWidth * 0.9
+const width = window.innerWidth * 0.99
 const height = width / 2
 
 canvas.width = width;
 canvas.height = height
 
+const fontSize = width / 25
+
+const dev = () => {
+  // player.points = 3
+}
+
 const paddleHeight = height / 5
 const paddleWidth = height / 50
-const ballRadius = height / 50
+const ballRadius = height / 25
 
 const ballSpeed = height / 200;
 const paddleSpeed = height / 200;
@@ -34,6 +40,7 @@ let doUpdate = true
 document.addEventListener('keydown', handleKeyDown)
 document.addEventListener('keyup', handleKeyUp)
 const start = () => {
+  dev()
   drawAll()
   doUpdate = false;
 }
@@ -49,6 +56,7 @@ const update = () => {
   player.update()
   enemy.update()
   drawAll()
+
 }
 
 const drawAll = () => {
@@ -81,9 +89,10 @@ class Ball {
   draw() {
     ctx.strokeStyle = 'white'
     ctx.fillStyle = 'white'
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.rad, 0, 2 * Math.PI)
-    ctx.fill()
+    ctx.fillRect(this.x, this.y, this.rad, this.rad)
+    // ctx.beginPath();
+    // ctx.arc(this.x, this.y, this.rad, 0, 2 * Math.PI)
+    // ctx.fill()
   }
 
   generateRandomVel() {
@@ -177,8 +186,9 @@ class Paddle {
 
   drawScore() {
     ctx.fillStyle = 'white'
-    ctx.font = '36px serif'
-    ctx.fillText(this.points, this.x / 2 + width / 4, 36)
+    // if (font[this.points]) font[this.points](this.x / 2 + width / 4, 36)
+    ctx.font = `bold ${fontSize}px serif`
+    ctx.fillText(this.points, this.x / 2 + width / 4, fontSize)
   }
 
   checkBounderies() {

@@ -1,9 +1,10 @@
 * {
   background-color: black;
+  margin: none;
+  overflow: hidden;
 }
 
 #canvas {
-  display: block;
-  margin: auto;
-  border: 2px solid white;
+  /* display: block;
+  margin: auto; */
 }
