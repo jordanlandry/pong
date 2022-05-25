@@ -18,9 +18,10 @@ let goUp = false;
 let goDown = false;
 
 const handleKeyDown = (e) => {
-  doUpdate = true
   if (e.key === 'ArrowDown') goDown = true
-  if (e.key === 'ArrowUp') goUp = true
+  else if (e.key === 'ArrowUp') goUp = true
+  else return 
+  doUpdate = true
 }
 
 const handleKeyUp = (e) => {
