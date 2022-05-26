@@ -2,6 +2,7 @@
   /* background-color: rgb(13, 13, 34); */
   margin: none;
   /* overflow: hidden; */
+  height: fit-content;
 }
 
 #canvas {
